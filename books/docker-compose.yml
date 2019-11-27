@@ -4,6 +4,10 @@ services:
   web:
     build: .
     command: python /code2/manage.py runserver 0.0.0.0:8000
+    environment:
+      # $を２つに変更
+      - SECRET_KEY=2$$h@36ukgma7zzi5$c(b7jm@pwn3zk9j1skrjslgyjk1m0o)kx
+      - DEBUG=1
     volumes:
       - .:/code2
     ports:
