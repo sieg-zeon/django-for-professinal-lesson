@@ -43,15 +43,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
 
     # Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
 ]
-
-# django-crispy-forms
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -145,6 +141,8 @@ STATICFILES_FINDERS = [
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
+# django-crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # django-allauth config
 LOGIN_REDIRECT_URL = 'home'
@@ -160,11 +158,11 @@ AUTHENTICATION_BACKENDS = (
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_SESSION_REMEMBER = True
-
 # パスワード確認設定をオフにする
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
-
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
