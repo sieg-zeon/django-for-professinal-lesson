@@ -4,6 +4,8 @@ from django.db import models
 from django.urls import reverse
 
 # Create your models here.
+
+
 class Book(models.Model):
     id = models.UUIDField(
         primary_key=True,
@@ -13,12 +15,15 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    cover = models.ImageField(upload_to='covers/', blank=True)
+
     def __str__(self):
         return self.title
 
-    # 新規登録したらidをリダイレクト先に返す
+    # 新規登録したらpkをリダイレクト先に返す
     def get_absolute_url(self):
-        return reverse('book_detail', args=[str(self.id)])
+        return reverse('book_detail', kwargs={'pk': str(self.pk)})
+
 
 class Review(models.Model):
     book = models.ForeignKey(
@@ -28,5 +33,6 @@ class Review(models.Model):
     )
     review = models.CharField(max_length=255)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+
     def __str__(self):
         return self.review
