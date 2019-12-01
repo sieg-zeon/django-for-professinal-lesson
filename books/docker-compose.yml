@@ -8,6 +8,8 @@ services:
       # $を２つに変更
       - SECRET_KEY=2$$h@36ukgma7zzi5$c(b7jm@pwn3zk9j1skrjslgyjk1m0o)kx
       - DEBUG=1
+      - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_OBJ9rpEtBuj4zjoSUrrSKgu000t9sTe960
+      - STRIPE_TEST_SECRET_KEY=sk_test_kgskZOAQk21qvwadE5R75whe00yauWVOXt
     volumes:
       - .:/code2
     ports:
