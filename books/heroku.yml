@@ -10,3 +10,4 @@ release:
     - python manage.py collectstatic --noinput
 run:
   web: gunicorn bookstore_project.wsgi
+# herokuに必要
